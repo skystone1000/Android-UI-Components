@@ -4,6 +4,7 @@ plugins {
 }
 
 allprojects {
+
 }
 
 android {
@@ -59,6 +60,8 @@ dependencies {
     // Card View
     implementation(libs.androidx.cardview)
 
+    // Mp Chart Library
+    implementation(libs.mpandroidchart)
 
 
 }

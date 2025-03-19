@@ -5,7 +5,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.example.androiduicomponents.R
+import com.example.androiduicomponents.atoms.fragments.PieChartFragment
 import com.example.androiduicomponents.databinding.ActivityAtomsBinding
 
 class AtomsActivity : AppCompatActivity() {
@@ -24,6 +26,20 @@ class AtomsActivity : AppCompatActivity() {
 
         binding = ActivityAtomsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Initial Views
+        binding.btn1.setOnClickListener{
+            openFragment(PieChartFragment())
+        }
+
+    }
+
+    private fun openFragment(fragment: Fragment){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
 
     }
 }
