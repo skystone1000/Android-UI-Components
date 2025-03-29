@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AndroidUiComponents</string>
+
+    <string name="ui_components">UI Components</string>
+    <string name="atoms">Atoms</string>
+    <string name="molecules">Molecules</string>
+    <string name="organism">Organism</string>
+    <string name="templates">Templates</string>
+    <string name="view">View</string>
+</resources>
