@@ -13,6 +13,14 @@
         android:theme="@style/Theme.AndroidUiComponents"
         tools:targetApi="31">
         <activity
+            android:name=".others.OthersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".others.tabs.TabActivity"
+            android:exported="false"
+            android:label="@string/title_activity_tab"
+            android:theme="@style/Theme.AndroidUiComponents.NoActionBar" />
+        <activity
             android:name=".templates.TemplatesActivity"
             android:exported="false" />
         <activity

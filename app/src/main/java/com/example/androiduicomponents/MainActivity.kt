@@ -10,6 +10,7 @@ import com.example.androiduicomponents.atoms.AtomsActivity
 import com.example.androiduicomponents.databinding.ActivityMainBinding
 import com.example.androiduicomponents.molecules.MoleculesActivity
 import com.example.androiduicomponents.organisms.OrganismsActivity
+import com.example.androiduicomponents.others.OthersActivity
 import com.example.androiduicomponents.templates.TemplatesActivity
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +46,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnTemplates.setOnClickListener{
             val intent = Intent(this, TemplatesActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnOthers.setOnClickListener{
+            val intent = Intent(this, OthersActivity::class.java)
             startActivity(intent)
         }
 

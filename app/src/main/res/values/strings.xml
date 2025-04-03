@@ -7,4 +7,10 @@
     <string name="organism">Organism</string>
     <string name="templates">Templates</string>
     <string name="view">View</string>
+    <string name="others">Others</string>
+
+
+    <string name="title_activity_tab">TabActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>
