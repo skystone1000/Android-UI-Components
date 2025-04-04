@@ -1,5 +1,6 @@
 package com.example.androiduicomponents.molecules
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
@@ -17,9 +18,8 @@ class ButtonGroupListMolecule @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : FrameLayout(context, attrs) {
 
-    private var currentSelection: Int = -1
+    private var currentSelection: Int = 0
     private var listOfButtons : List<ButtonGroupListModel> = mutableListOf()
-    private lateinit var allItems : List<ButtonGroupListModel>
 
     // Declare binding
     private var binding : ButtonGroupListMoleculeLayoutBinding =
@@ -62,8 +62,37 @@ class ButtonGroupListMolecule @JvmOverloads constructor(
                 // invoke listener when user selects different button
                 currentSelection = checkedId
                 listener.invoke(listOfButtons[checkedId])
+                // animateSelection(currentSelection) // animate slide (Giving issues)
                 updateListData(listOfButtons[currentSelection].items)
             }
+        }
+    }
+
+    private fun animateSelection(currentSelection: Int){
+        val button = findViewById<MaterialButton>(currentSelection)
+
+        val targetX = button.x + (button.width/2)
+        val targetWidth = button.width
+
+        // Animate position change
+        ValueAnimator.ofFloat(binding.slider.x, targetX).apply{
+            duration = 500
+            addUpdateListener { animator ->
+                binding.slider.x = animator.animatedValue as Float
+            }
+            start()
+        }
+
+        // Animate width change
+        ValueAnimator.ofInt(binding.slider.width, targetWidth).apply{
+            duration = 500
+            addUpdateListener { animator ->
+                val newWidth = animator.animatedValue as Int
+                val layoutParams = binding.slider.layoutParams
+                layoutParams.width = newWidth
+                binding.slider.layoutParams = layoutParams
+            }
+            start()
         }
     }
 
